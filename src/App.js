@@ -27,7 +27,8 @@ export default function App() {
   async function handleLikeRepository(id) {
     try {
       const req = await api.post(`/repositories/${id}/like`);
-      loadData();
+      console.log(req.data);
+      setRepository([req.data]);
     } catch (error) {
       Alert.alert("Não foi possivel curtir este repositório!");
     }
@@ -58,7 +59,6 @@ export default function App() {
                   style={styles.likeText}
                   testID={`repository-likes-${item.id}`}
                 >
-                  {console.log(item)}
                   {item.likes} {item.likes === 1 ? "curtida" : "curtidas"}
                 </Text>
               </View>
