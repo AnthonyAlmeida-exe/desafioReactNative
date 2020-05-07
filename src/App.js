@@ -27,7 +27,6 @@ export default function App() {
   async function handleLikeRepository(id) {
     try {
       const req = await api.post(`/repositories/${id}/like`);
-      console.log(req.data);
       setRepository([req.data]);
     } catch (error) {
       Alert.alert("Não foi possivel curtir este repositório!");
